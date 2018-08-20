@@ -1,48 +1,55 @@
-package com.inapp.firstjava.learn;
+package com.inapp.firstjava.util;
 
-public class Rectangle {
+import com.inapp.firstjava.util.interfce.*;
+
+public class Rectangle extends Polygon {
 	
-	private double length;
-	private double breadth;
-	private double perimeter;
+	private Double length;
+	private Double breadth;
 	private double area;
+	private double perimeter;
 	
-	public Rectangle(){
-		
+	public Rectangle() {
+		System.out.println("Constructor rectangle()");
 	}
-	public Rectangle(double length,double breadth)
-{
-     this.length=length;
-     this.breadth=breadth;
-     perimeter=2*(length+breadth);
-     area=length*breadth;
-}
-
 	
-	public void setLength(double length) {
+	public Rectangle(double length,double breadth) {
 		this.length = length;
-		perimeter=2*(length+breadth);
-		area=length*breadth;
-	}
-	public void setBreadth(double breadth) {
 		this.breadth = breadth;
-		perimeter=2*(length+breadth);
-		area=length*breadth;
+		area = length * breadth;
+		perimeter = 2*(length+breadth);
+		System.out.println("Constructor rectangle(d,d)");
 	}
+		
 	public double getLength() {
 		return length;
 	}
+	public void setLength(double length) {
+		this.length = length;
+		updateAreaAndPerimeter();
+	}
+	
 	public double getBreadth() {
 		return breadth;
+	}
+	public void setBreadth(double breadth) {
+		this.breadth = breadth;
+		updateAreaAndPerimeter();
+	}
+	
+	public double getArea() {
+		return area;
 	}
 	public double getPerimeter() {
 		return perimeter;
 	}
-	public double getArea() {
-		return area;
+	
+	private void updateAreaAndPerimeter(){
+		area = length*breadth;
+		perimeter = 2*(length+breadth);
 	}
-	
-	
-
+	public double calArea(){
+		return length*breadth;
+	}
 	
 }
